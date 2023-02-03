@@ -3,6 +3,8 @@ const router = Router();
 
 import * as usuarioCtrl from "../controllers/usuario.controller";
 
-router.get("/users-list");
+router.post("/create", usuarioCtrl.createUsuario);
+
+router.put("/changeDescuento", usuarioCtrl.changeDescuento);
 
 export default router;
