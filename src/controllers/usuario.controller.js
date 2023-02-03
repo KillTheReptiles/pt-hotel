@@ -80,3 +80,17 @@ export const getDescuento = async (req, res) => {
     console.log(error);
   }
 };
+
+export const gananciasMensuales = async (req, res) => {
+  //Calcular las ganancias que tendrán en un mes especificado (considere que todos los meses tienen treinta días).
+  const { tipo_usuario, fecha } = req.body;
+
+  if (tipo_usuario != 2)
+    return res.status(400).json({ message: "No autorizado" });
+
+  try {
+    const reservas = await Reserva.find({});
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -9,4 +9,9 @@ router.get("/habitaciones", habitacionCtrl.getHabitaciones); //Obtener un listad
 
 router.get("/precio", habitacionCtrl.getPrecioHabitacionPorTipo); //Obtener el precio de una habitacion por tipo
 
+router.put(
+  "/cambiar-precio-tipo",
+  habitacionCtrl.cambiarPrecioHabitacionPorTipo
+); //Cambiar el precio de una habitacion por tipo");
+
 export default router;

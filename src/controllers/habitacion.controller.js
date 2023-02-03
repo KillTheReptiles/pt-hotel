@@ -70,3 +70,23 @@ export const getPrecioHabitacionPorTipo = async (req, res) => {
     console.log(error);
   }
 };
+
+export const cambiarPrecioHabitacionPorTipo = async (req, res) => {
+  //Cambiar el precio de una pieza de acuerdo a su tipo
+  const { tipo_usuario, tipo_pieza, precioNuevo } = req.body;
+
+  if (tipo_usuario != 2)
+    return res.status(400).json({ message: "No autorizado" });
+
+  try {
+    const habitaciones = await Habitacion.updateMany(
+      { tipo_pieza: tipo_pieza },
+      { precio: precioNuevo },
+      { new: true }
+    );
+
+    res.status(200).json({ message: "Precio actualizado a " + precioNuevo });
+  } catch (error) {
+    console.log(error);
+  }
+};
