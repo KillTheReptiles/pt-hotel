@@ -24,7 +24,8 @@ export const createReserva = async (req, res) => {
 
     const reservaSaved = await newReserva.save();
 
-    const actualizarHabitacion = await Habitacion.findOneAndUpdate(
+    await Habitacion.findOneAndUpdate(
+      // se actualiza la disponibilidad de la habitacion
       { numero_habitacion: numero_habitacion },
       { disponibilidad: false },
       {
@@ -33,6 +34,26 @@ export const createReserva = async (req, res) => {
     );
 
     res.status(201).json(reservaSaved);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteReserva = async (req, res) => {
+  const { numero_habitacion } = req.params;
+  try {
+    const reserva = await Reserva.findOneAndDelete({
+      numero_habitacion: numero_habitacion,
+    });
+    await Habitacion.findOneAndUpdate(
+      // se actualiza la disponibilidad de la habitacion
+      { numero_habitacion: reserva.numero_habitacion },
+      { disponibilidad: true },
+      {
+        new: true,
+      }
+    );
+    res.status(200).json(`Habitacion #${numero_habitacion}: Reserva eliminada`);
   } catch (error) {
     console.log(error);
   }
