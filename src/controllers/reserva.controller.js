@@ -22,7 +22,7 @@ export const createReserva = async (req, res) => {
       numero_habitacion: numero_habitacion,
     });
 
-    if (habitacion.disponibilidad == false || !habitacion)
+    if (!habitacion || habitacion.disponibilidad == false)
       return res
         .status(400)
         .json({ message: "La habitacion no esta disponible o no existe" }); // si la habitacion no esta disponible, no se crea la reserva
@@ -111,6 +111,25 @@ export const getPrecioTotalPorCliente = async (req, res) => {
       return res.status(400).json({ message: "Datos inválidos" });
 
     return res.status(200).json(`El precio total es: ${reserva.precio_total}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getReservasPorCliente = async (req, res) => {
+  //Mostrar la cantidad de reservas realizadas por el usuario ‘Ana Perez’
+
+  const { tipo_usuario, name } = req.body;
+
+  if (tipo_usuario != 1)
+    return res.status(400).json({ message: "No autorizado" });
+
+  try {
+    const cliente = await Cliente.findOne({ nombre: name });
+    const reservasCliente = await Reserva.find({
+      idf_cliente: cliente.identificacion,
+    });
+    res.status(200).json(reservasCliente);
   } catch (error) {
     console.log(error);
   }

@@ -9,4 +9,6 @@ router.delete("/delete/:numero_habitacion", reservaCtrl.deleteReserva);
 
 router.get("/precio-total-cliente", reservaCtrl.getPrecioTotalPorCliente);
 
+router.get("/reservas-cliente", reservaCtrl.getReservasPorCliente);
+
 export default router;

@@ -1,0 +1,401 @@
+{
+	"info": {
+		"_postman_id": "750dff32-da11-483a-ab42-635a9a92322e",
+		"name": "pt-hotel-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11898587"
+	},
+	"item": [
+		{
+			"name": "Reserva",
+			"item": [
+				{
+					"name": "/reserva/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 1,\r\n    \"nombre\": \"‘Ana Perez\",\r\n    \"fecha_entrada\": \"2023-02-02\",\r\n    \"numero_dias\": 1,\r\n    \"idf_cliente\": 1005106223,\r\n    \"numero_habitacion\": 17\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/reserva/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/reserva/delete/#habitacion",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/reserva/delete/38",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva",
+								"delete",
+								"38"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/reserva/precio-total-cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 1,\r\n    \"idf_cliente\": 1005106223,\r\n    \"numero_dias\": 1,\r\n    \"tipo_pieza\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/reserva/precio-total-cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva",
+								"precio-total-cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/reserva/reservas-cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 1,\r\n    \"name\": \"Ana Perez\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/reserva/reservas-cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reserva",
+								"reservas-cliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "/usuario/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Ana Perez\",\r\n    \"tipo_usuario\": 3,\r\n    \"identificacion\": 1005106223\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/usuario/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usuario",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/usuario/change-descuento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 2, \r\n    \"nuevoDescuento\": 50 \r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/usuario/change-descuento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usuario",
+								"change-descuento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/usuario/get-descuento",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/usuario/get-descuento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usuario",
+								"get-descuento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/usuario/clientes-habituales",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/usuario/clientes-habituales",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usuario",
+								"clientes-habituales"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Habitacion",
+			"item": [
+				{
+					"name": "/habitacion/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 1,\r\n    \"numero_habitacion\": 17,\r\n    \"tipo_pieza\": 3,\r\n    \"precio\": 100000\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/habitacion/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"habitacion",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/habitacion/create Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 2,\r\n    \"tipo_pieza\": 2,\r\n    \"precioNuevo\": 3000\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/habitacion/cambiar-precio-tipo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"habitacion",
+								"cambiar-precio-tipo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/habitacion/habitaciones",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 1,\r\n    \"tipo_pieza\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/habitacion/habitaciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"habitacion",
+								"habitaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/habitacion/precio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": 1,\r\n    \"tipo_pieza\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/habitacion/precio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"habitacion",
+								"precio"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

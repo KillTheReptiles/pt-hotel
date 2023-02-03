@@ -81,16 +81,31 @@ export const getDescuento = async (req, res) => {
   }
 };
 
-export const gananciasMensuales = async (req, res) => {
-  //Calcular las ganancias que tendrán en un mes especificado (considere que todos los meses tienen treinta días).
-  const { tipo_usuario, fecha } = req.body;
+export const clientesHabituales = async (req, res) => {
+  //Listado de clientes habituales
+  const { tipo_usuario } = req.body;
 
-  if (tipo_usuario != 2)
+  if (tipo_usuario != 1)
     return res.status(400).json({ message: "No autorizado" });
 
   try {
-    const reservas = await Reserva.find({});
+    const clientesHabituales = await Usuario.find({ tipo_usuario: 3 });
+    return res.status(200).json(clientesHabituales);
   } catch (error) {
     console.log(error);
   }
 };
+
+// export const gananciasMensuales = async (req, res) => {
+//   //Calcular las ganancias que tendrán en un mes especificado (considere que todos los meses tienen treinta días).
+//   const { tipo_usuario, fecha } = req.body;
+
+//   if (tipo_usuario != 2)
+//     return res.status(400).json({ message: "No autorizado" });
+
+//   try {
+//     const reservas = await Reserva.find({});
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

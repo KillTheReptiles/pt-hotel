@@ -9,4 +9,6 @@ router.put("/change-descuento", usuarioCtrl.changeDescuento);
 
 router.get("/get-descuento", usuarioCtrl.getDescuento);
 
+router.get("/clientes-habituales", usuarioCtrl.clientesHabituales);
+
 export default router;
