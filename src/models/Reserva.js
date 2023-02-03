@@ -6,7 +6,7 @@ const reservaSchema = new Schema(
     numero_habitacion: String,
     fecha_entrada: Date,
     numero_dias: Number,
-    //hay que mirar lo del descuento y el precio total
+    precio_total: Number,
   },
   {
     timestamps: true,

@@ -6,4 +6,7 @@ import * as reservaCtrl from "../controllers/reserva.controller";
 router.post("/create", reservaCtrl.createReserva);
 
 router.delete("/delete/:numero_habitacion", reservaCtrl.deleteReserva);
+
+router.get("/precio-total-cliente", reservaCtrl.getPrecioTotalPorCliente);
+
 export default router;
